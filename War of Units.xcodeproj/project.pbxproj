@@ -7,7 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		913CB85425E8E831001FCE7D /* War.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913CB85325E8E831001FCE7D /* War.swift */; };
 		9199837225E0F032001FF06E /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199837125E0F032001FF06E /* main.swift */; };
+		9199837A25E1013C001FF06E /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199837925E1013C001FF06E /* Unit.swift */; };
+		9199837E25E124B0001FF06E /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199837D25E124B0001FF06E /* Dog.swift */; };
+		9199838225E13B41001FF06E /* Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199838125E13B41001FF06E /* Spawn.swift */; };
+		9199838525E13C40001FF06E /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199838425E13C40001FF06E /* Robot.swift */; };
+		91B27AAB25E6401300200CAC /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B27AAA25E6401300200CAC /* Human.swift */; };
+		91B27AAE25E641F900200CAC /* Jedi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B27AAD25E641F900200CAC /* Jedi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,8 +30,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		913CB85325E8E831001FCE7D /* War.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = War.swift; sourceTree = "<group>"; };
 		9199836E25E0F032001FF06E /* War of Units */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "War of Units"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9199837125E0F032001FF06E /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		9199837925E1013C001FF06E /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
+		9199837D25E124B0001FF06E /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
+		9199838125E13B41001FF06E /* Spawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawn.swift; sourceTree = "<group>"; };
+		9199838425E13C40001FF06E /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
+		91B27AAA25E6401300200CAC /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
+		91B27AAD25E641F900200CAC /* Jedi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jedi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +71,24 @@
 		9199837025E0F032001FF06E /* War of Units */ = {
 			isa = PBXGroup;
 			children = (
+				9199837C25E12498001FF06E /* Units */,
 				9199837125E0F032001FF06E /* main.swift */,
+				9199837925E1013C001FF06E /* Unit.swift */,
+				9199838125E13B41001FF06E /* Spawn.swift */,
+				913CB85325E8E831001FCE7D /* War.swift */,
 			);
 			path = "War of Units";
+			sourceTree = "<group>";
+		};
+		9199837C25E12498001FF06E /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				9199837D25E124B0001FF06E /* Dog.swift */,
+				9199838425E13C40001FF06E /* Robot.swift */,
+				91B27AAA25E6401300200CAC /* Human.swift */,
+				91B27AAD25E641F900200CAC /* Jedi.swift */,
+			);
+			path = Units;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +148,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9199838525E13C40001FF06E /* Robot.swift in Sources */,
+				91B27AAE25E641F900200CAC /* Jedi.swift in Sources */,
+				91B27AAB25E6401300200CAC /* Human.swift in Sources */,
 				9199837225E0F032001FF06E /* main.swift in Sources */,
+				9199837A25E1013C001FF06E /* Unit.swift in Sources */,
+				9199837E25E124B0001FF06E /* Dog.swift in Sources */,
+				913CB85425E8E831001FCE7D /* War.swift in Sources */,
+				9199838225E13B41001FF06E /* Spawn.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

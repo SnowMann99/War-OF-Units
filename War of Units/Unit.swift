@@ -7,22 +7,40 @@
 
 protocol Unit {
     
-//MARK: - Protocol Properties
+    //MARK: - Protocol Properties
     
     var healthPoints: Int { get set }
     var resistanceDamageCoefficient: Int { get set }
     
-    var gun: String { get set }
-    var roar: String { get set }
+    var damage: Int { get set}
+    var name: String { get }
     
- //MARK: - Protocol Methods
+    var gun: String { get }
+    var roar: String { get }
     
-    func takeDamage(by: Unit)
+    //MARK: - Protocol Methods
     
-    func prepareForBattle(takeGun: String)
-    func battleRoaring(battleRoar: String)
+    func takeDamage(from unit: Unit)
     
-//MARK: - Init
+    func prepareForBattle()
+    func makeBattleRoar()
+    
+    //MARK: - Life Cycle
     
     init()
+}
+
+extension Unit {
+    
+    func takeDamage(from unit: Unit) {
+        print("\(name) получает урон от \(unit)")
+    }
+    
+    func prepareForBattle() {
+        print("\(name) теперь готов к битве! Его оружие - \(gun)")
+    }
+    
+    func makeBattleRoar() {
+        print("\(name) издает боевой клич - \(roar)")
+    }
 }

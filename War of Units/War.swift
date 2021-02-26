@@ -5,8 +5,6 @@
 //  Created by Egor Salnikov on 26.02.2021.
 //
 
-import Foundation
-
 class War {
     
     init(units: [Unit]) {

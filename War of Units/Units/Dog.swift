@@ -5,40 +5,43 @@
 //  Created by Egor Salnikov on 20.02.2021.
 //
 
-import Foundation
-
-class Dog: Unit {
+final class Dog: Unit {
     
-    required init() {
-        
-        self.healthPoints = (50 ... 80).randomElement() ?? 0
-        self.resistanceDamageCoefficient = (10 ... 15).randomElement() ?? 0
-        
-        self.gun = ["Зубы", "Лапы"].randomElement() ?? "Без оружия"
-        self.roar = "WOOF WOOF"
-        
-        self.damage = (35 ... 40).randomElement() ?? 0
-        self.isHealthPointsBoosted = [true, false].randomElement()!
-        
-        prepareForBattle(takeGun: gun)
-        battleRoaring(battleRoar: roar)
-        
-        healthPointBoostDetect()
-    }
+    //MARK: - Properties
     
-   
     var healthPoints: Int
     var resistanceDamageCoefficient: Int
+    
+    var damage: Int
     
     var gun: String
     var roar: String
     
-    var damage: Int
+    var name: String
     var isHealthPointsBoosted: Bool
     
-    func hitUnit() {
-        print("Собака атакует врага!")
+    //MARK: - Life Cycle
+    
+    required init() {
+        
+        healthPoints = (50 ... 80).randomElement() ?? 0
+        resistanceDamageCoefficient = (10 ... 15).randomElement() ?? 0
+        
+        gun = ["Зубы", "Лапы"].randomElement() ?? "Без оружия"
+        roar = "WOOF WOOF"
+        
+        name = "Собака"
+        
+        damage = (35 ... 40).randomElement() ?? 0
+        isHealthPointsBoosted = [true, false].randomElement()!
+        
+        prepareForBattle()
+        makeBattleRoar()
+        
+        healthPointBoostDetect()
     }
+    
+    //MARK: - Public Methods
     
     func healthPointBoostDetect() {
         if isHealthPointsBoosted {
@@ -46,15 +49,7 @@ class Dog: Unit {
         }
     }
     
-    func takeDamage(by: Unit) {
-        print("Собака получает урон от \(by)")
-    }
-    
-    func prepareForBattle(takeGun: String) {
-        print("Собака теперь готова к битве! Ее оружие - \(takeGun)")
-    }
-    
-    func battleRoaring(battleRoar: String) {
-        print("Собака издает боевой клич - \(battleRoar)")
+    func prepareForBattle() {
+        print("Собака теперь готова к битве! Ее оружие - \(gun)")
     }
 }

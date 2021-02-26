@@ -5,40 +5,44 @@
 //  Created by Egor Salnikov on 20.02.2021.
 //
 
-import Foundation
-
-class Robot: Unit {
+final class Robot: Unit {
+    
+    //MARK: - Properties
+    
+    var healthPoints: Int
+    var resistanceDamageCoefficient: Int
+    
+    var damage: Int
+    
+    var gun: String
+    var roar: String
+    
+    var name: String
+    var isDamageBoosted: Bool
+    
+    //MARK: - Life Cycle
     
     required init() {
         
-        self.healthPoints = (50 ... 100).randomElement() ?? 0
-        self.resistanceDamageCoefficient = (1 ... 3).randomElement() ?? 0
+        healthPoints = (50 ... 100).randomElement() ?? 0
+        resistanceDamageCoefficient = (1 ... 3).randomElement() ?? 0
         
-        self.gun = ["Ракета", "Бластер"].randomElement() ?? ""
-        self.roar = "Im going to kill you!"
+        gun = ["Ракета", "Бластер"].randomElement() ?? ""
+        roar = "Im going to kill you!"
         
-        self.damage = (35 ... 45).randomElement() ?? 0
-        self.isDamageBoosted = [true, false].randomElement()!
+        name = "Робот"
         
-        prepareForBattle(takeGun: gun)
-        battleRoaring(battleRoar: roar)
+        damage = (35 ... 45).randomElement() ?? 0
+        isDamageBoosted = [true, false].randomElement()!
+        
+        prepareForBattle()
+        makeBattleRoar()
         
         damageBoostDetect()
         
     }
     
-    var healthPoints: Int
-    var resistanceDamageCoefficient: Int
-    
-    var gun: String
-    var roar: String
-    
-    var damage: Int
-    var isDamageBoosted: Bool
-    
-    func hitUnit() {
-        print("Робот атакует врага!")
-    }
+    //MARK: - Public Methods
     
     func damageBoostDetect() {
         if isDamageBoosted {
@@ -46,16 +50,5 @@ class Robot: Unit {
         }
     }
     
-    func takeDamage(by: Unit) {
-        print("Робот получает урон от \(by)")
-    }
-    
-    func prepareForBattle(takeGun: String) {
-        print("Робот теперь готов к битве! Его оружие - \(takeGun)")
-    }
-    
-    func battleRoaring(battleRoar: String) {
-        print("Робот издает боевой клич - \(battleRoar)")
-    }
 }
 

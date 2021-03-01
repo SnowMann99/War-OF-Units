@@ -5,8 +5,6 @@
 //  Created by Egor Salnikov on 20.02.2021.
 //
 
-import Foundation
-
 class Spawn {
     
     func generateUnits(count: Int) -> [Unit] {

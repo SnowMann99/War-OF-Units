@@ -23,7 +23,6 @@ final class Jedi: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        
         healthPoints = (80 ... 100).randomElement() ?? 0
         resistanceDamageCoefficient = (5 ... 10).randomElement() ?? 0
         

@@ -23,7 +23,6 @@ final class Dog: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        
         healthPoints = (50 ... 80).randomElement() ?? 0
         resistanceDamageCoefficient = (10 ... 15).randomElement() ?? 0
         

@@ -23,7 +23,6 @@ final class Robot: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        
         healthPoints = (50 ... 100).randomElement() ?? 0
         resistanceDamageCoefficient = (1 ... 3).randomElement() ?? 0
         

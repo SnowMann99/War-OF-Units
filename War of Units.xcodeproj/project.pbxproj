@@ -13,6 +13,7 @@
 		9199837E25E124B0001FF06E /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199837D25E124B0001FF06E /* Dog.swift */; };
 		9199838225E13B41001FF06E /* Spawn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199838125E13B41001FF06E /* Spawn.swift */; };
 		9199838525E13C40001FF06E /* Robot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9199838425E13C40001FF06E /* Robot.swift */; };
+		919B44C125F2627700ED0EDF /* Battle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919B44C025F2627700ED0EDF /* Battle.swift */; };
 		91B27AAB25E6401300200CAC /* Human.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B27AAA25E6401300200CAC /* Human.swift */; };
 		91B27AAE25E641F900200CAC /* Jedi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B27AAD25E641F900200CAC /* Jedi.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +38,7 @@
 		9199837D25E124B0001FF06E /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
 		9199838125E13B41001FF06E /* Spawn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawn.swift; sourceTree = "<group>"; };
 		9199838425E13C40001FF06E /* Robot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Robot.swift; sourceTree = "<group>"; };
+		919B44C025F2627700ED0EDF /* Battle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Battle.swift; sourceTree = "<group>"; };
 		91B27AAA25E6401300200CAC /* Human.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Human.swift; sourceTree = "<group>"; };
 		91B27AAD25E641F900200CAC /* Jedi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jedi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +78,7 @@
 				9199837925E1013C001FF06E /* Unit.swift */,
 				9199838125E13B41001FF06E /* Spawn.swift */,
 				913CB85325E8E831001FCE7D /* War.swift */,
+				919B44C025F2627700ED0EDF /* Battle.swift */,
 			);
 			path = "War of Units";
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				9199837E25E124B0001FF06E /* Dog.swift in Sources */,
 				913CB85425E8E831001FCE7D /* War.swift in Sources */,
 				9199838225E13B41001FF06E /* Spawn.swift in Sources */,
+				919B44C125F2627700ED0EDF /* Battle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

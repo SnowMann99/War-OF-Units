@@ -24,18 +24,15 @@ final class Jedi: Unit {
     
     required init() {
         healthPoints = (80 ... 100).randomElement() ?? 0
-        resistanceDamageCoefficient = (5 ... 10).randomElement() ?? 0
+        resistanceDamageCoefficient = (1 ... 10).randomElement() ?? 0
         
-        name = "Джедай"
+        name = "Джедай 🥷🏻"
         
         gun = ["Световой меч", "Магия"].randomElement() ?? ""
         roar = "Да прибудет с тобой сила!"
         
-        damage = (30 ... 40).randomElement() ?? 0
+        damage = (25 ... 35).randomElement() ?? 0
         isDamageBoosted = [true, false].randomElement()!
-        
-        prepareForBattle()
-        makeBattleRoar()
         
         damageBoostDetect()
     }
@@ -44,7 +41,7 @@ final class Jedi: Unit {
     
     func damageBoostDetect() {
         if isDamageBoosted {
-            damage += (5 ... 10).randomElement() ?? 0
+            damage += (3 ... 5).randomElement() ?? 0
         }
     }
     

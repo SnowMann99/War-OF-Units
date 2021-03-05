@@ -6,8 +6,8 @@
 //
 
 var spawn = Spawn()
-var units = spawn.generateUnits(count: 6)
+var units = spawn.generateUnits(count: 12)
 
 var war = War(units: units)
 
-
+war.startWar()

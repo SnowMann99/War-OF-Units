@@ -23,19 +23,16 @@ final class Dog: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        healthPoints = (50 ... 80).randomElement() ?? 0
-        resistanceDamageCoefficient = (10 ... 15).randomElement() ?? 0
+        healthPoints = (70 ... 75).randomElement() ?? 0
+        resistanceDamageCoefficient = (6 ... 12).randomElement() ?? 0
         
         gun = ["Зубы", "Лапы"].randomElement() ?? "Без оружия"
         roar = "WOOF WOOF"
         
-        name = "Собака"
+        name = "Собака 🐕"
         
-        damage = (35 ... 40).randomElement() ?? 0
+        damage = (20 ... 25).randomElement() ?? 0
         isHealthPointsBoosted = [true, false].randomElement()!
-        
-        prepareForBattle()
-        makeBattleRoar()
         
         healthPointBoostDetect()
     }
@@ -44,7 +41,7 @@ final class Dog: Unit {
     
     func healthPointBoostDetect() {
         if isHealthPointsBoosted {
-            healthPoints += (5 ... 10).randomElement() ?? 0
+            damage += (5 ... 10).randomElement() ?? 0
         }
     }
     

@@ -6,7 +6,7 @@
 //
 
 final class Jedi: Unit {
-    
+        
     //MARK: - Properties
     
     var healthPoints: Int
@@ -31,7 +31,7 @@ final class Jedi: Unit {
         gun = ["Световой меч", "Магия"].randomElement() ?? ""
         roar = "Да прибудет с тобой сила!"
         
-        damage = (25 ... 35).randomElement() ?? 0
+        damage = (15 ... 20).randomElement() ?? 0
         isDamageBoosted = [true, false].randomElement()!
         
         damageBoostDetect()

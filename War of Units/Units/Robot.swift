@@ -31,7 +31,7 @@ final class Robot: Unit {
         
         name = "Робот 🤖"
         
-        damage = (20 ... 30).randomElement() ?? 0
+        damage = (15 ... 20).randomElement() ?? 0
         isDamageBoosted = [true, false].randomElement()!
         
         damageBoostDetect()

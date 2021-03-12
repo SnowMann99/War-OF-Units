@@ -14,28 +14,36 @@ final class War {
     
     //MARK: - Life Cycle
     
-    init(units: [Unit]) {
-        var sortedUnits = units.sorted {
+    init?(units: [Unit]) {
+        
+        guard !units.isEmpty else { return }
+        var isReverseNeeded = false
+        
+        let sortedUnits = units.sorted {
             if $0.healthPoints == $1.healthPoints {
                 return $0.damage > $1.damage
+            }
+            if $0.healthPoints == $1.healthPoints && $0.damage == $1.damage {
+                return $0.resistanceDamageCoefficient > $1.resistanceDamageCoefficient
             }
             return $0.healthPoints > $1.healthPoints
         }
         
-        if !sortedUnits.isEmpty {
+        for (index, unit) in sortedUnits.enumerated() {
+            let allUnits = armyOne.count + armyTwo.count
             
-            armyOne.append(sortedUnits.first!)
-            sortedUnits.removeFirst()
-        
-            armyTwo.append(sortedUnits.first!)
-            sortedUnits.removeFirst()
-        }
-        
-        for i in sortedUnits {
-            if armyTwo.count == armyOne.count {
-                armyTwo.append(i)
-            } else {
-                armyOne.append(i)
+            if index.isMultiple(of: 2) && !isReverseNeeded {
+                armyOne.append(unit)
+            } else if !index.isMultiple(of: 2) && !isReverseNeeded {
+                armyTwo.append(unit)
+                isReverseNeeded = true
+            } else if isReverseNeeded {
+                if allUnits.isMultiple(of: 2) {
+                    armyTwo.append(unit)
+                } else {
+                    armyOne.append(unit)
+                    isReverseNeeded = false
+                }
             }
         }
     }
@@ -43,15 +51,29 @@ final class War {
     //MARK: - Public Methods
     
     func startWar() {
-        for _ in armyOne {
-            let battle = Battle(unit1: armyOne.first!, unit2: armyTwo.first!)
-            let fights = [battle]
-            
-            for _ in fights {
-                battle.startBattle()
+        let armies = zip(armyOne, armyTwo)
         
-                armyOne.removeFirst()
-                armyTwo.removeFirst()
+        while armyOne.count > 0 && armyTwo.count > 0 {
+            
+            for _ in armies {
+                guard let firstUnit = armyOne.first, let secondUnit = armyTwo.first else { return }
+                let battles = [Battle(firstUnit: firstUnit, secondUnit: secondUnit)]
+            
+                for battle in battles {
+                    battle.startBattle()
+                
+                    if battle.firstUnit.isAlive {
+                        print("Добавлен в первую армию")
+                        armyOne.append(battle.firstUnit)
+                    } else {
+                        print("Добавлен во вторую армию")
+                        armyTwo.append(battle.secondUnit)
+                    }
+                    
+                    armyOne.removeFirst()
+                    armyTwo.removeFirst()
+                    
+                }
             }
         }
     }

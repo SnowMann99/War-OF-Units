@@ -14,41 +14,36 @@ final class Battle {
     
     //MARK: - Life Cycle
     
-    init(unit1: Unit, unit2: Unit) {
-        firstUnit = unit1
-        secondUnit = unit2
+    init(firstUnit: Unit, secondUnit: Unit) {
+        self.firstUnit = firstUnit
+        self.secondUnit = secondUnit
     }
     
     //MARK: - Public Methods
     
-    func isAliveCheck(unit: Unit) -> Bool {
-        return unit.healthPoints > 0 ? true : false
-    }
-    
-    func winnerAnnouncement() {
-        let winner = [firstUnit, secondUnit].sorted { ($0.healthPoints > $1.healthPoints)}
-        print("Победитель - \(winner.first!.name) (\(winner.first!.healthPoints))")
-    }
-    
     func startBattle() {
-        while firstUnit.healthPoints > 0 && secondUnit.healthPoints > 0 {
-            firstUnit.printInfo()
-            secondUnit.printInfo()
+        
+        while firstUnit.isAlive && secondUnit.isAlive {
+            firstUnit.printUnitInfo()
+            secondUnit.printUnitInfo()
             
-            firstUnit.makeBattleRoar()
+            if firstUnit.isAlive {
+                firstUnit.makeBattleRoar()
+                secondUnit.takeDamage(from: firstUnit)
+                
+                if !secondUnit.isAlive {
+                    print("Победитель - \(firstUnit.name) (\(firstUnit.healthPoints))")
+                }
+            }
             
-            secondUnit.takeDamage(from: firstUnit)
-            secondUnit.healthPoints -= (firstUnit.damage - secondUnit.resistanceDamageCoefficient)
-            
-            if isAliveCheck(unit: secondUnit) {
+            if secondUnit.isAlive {
                 secondUnit.makeBattleRoar()
                 firstUnit.takeDamage(from: secondUnit)
-            
-                firstUnit.healthPoints -= (secondUnit.damage - firstUnit.resistanceDamageCoefficient)
-            } else {
-                break
+                
+                if !firstUnit.isAlive {
+                    print("Победитель - \(secondUnit.name) (\(secondUnit.healthPoints))")
+                }
+            }
         }
-    }
-        winnerAnnouncement()
     }
 }

@@ -32,7 +32,7 @@ final class Human: Unit {
         name = "Человек 🙎🏻‍♂️"
         
         isResistanceBoosted = [false, true].randomElement()!
-        damage = (25 ... 35).randomElement() ?? 0
+        damage = (20 ... 25).randomElement() ?? 0
         
         resistanceBoostDetect()
     }

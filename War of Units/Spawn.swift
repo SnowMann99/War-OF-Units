@@ -11,7 +11,7 @@ final class Spawn {
         var spawnedUnits: [Unit] = []
         
         for _ in 1 ... count {
-            let types: [Unit.Type] = [Robot.self, Dog.self ,Human.self, Jedi.self]
+            let types: [Unit.Type] = [Robot.self, Dog.self, Human.self, Jedi.self]
 
             if let randomType = types.randomElement() {
                 let unit = randomType.init()

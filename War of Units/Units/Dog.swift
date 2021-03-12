@@ -18,7 +18,7 @@ final class Dog: Unit {
     var roar: String
     
     var name: String
-    var isHealthPointsBoosted: Bool
+    var isDamageBoosted: Bool
     
     //MARK: - Life Cycle
     
@@ -31,8 +31,8 @@ final class Dog: Unit {
         
         name = "Собака 🐕"
         
-        damage = (20 ... 25).randomElement() ?? 0
-        isHealthPointsBoosted = [true, false].randomElement()!
+        damage = (15 ... 20).randomElement() ?? 0
+        isDamageBoosted = [true, false].randomElement()!
         
         healthPointBoostDetect()
     }
@@ -40,8 +40,8 @@ final class Dog: Unit {
     //MARK: - Public Methods
     
     func healthPointBoostDetect() {
-        if isHealthPointsBoosted {
-            damage += (5 ... 10).randomElement() ?? 0
+        if isDamageBoosted {
+            damage += (3 ... 5).randomElement() ?? 0
         }
     }
     

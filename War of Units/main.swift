@@ -7,10 +7,9 @@
 import Foundation
 
 var spawn = Spawn()
-var units = spawn.generateUnits(count: 4)
+var units = spawn.generateUnits(count: 6)
 
 var war = War(units: units)
 
 war?.startWar()
 
-RunLoop.main.run()

@@ -12,9 +12,9 @@ protocol Unit {
     var healthPoints: Int { get set }
     var resistanceDamageCoefficient: Int { get set }
     
+    var damage: Int { get set }
     var isAlive: Bool { get }
     
-    var damage: Int { get set }
     var name: String { get }
     
     var gun: String { get }

@@ -15,8 +15,7 @@ final class War {
     //MARK: - Life Cycle
     
     init?(units: [Unit]) {
-        
-        guard !units.isEmpty else { return }
+        guard !units.isEmpty else { return nil }
         var isReverseNeeded = false
         
         let sortedUnits = units.sorted {
@@ -30,7 +29,7 @@ final class War {
         }
         
         for (index, unit) in sortedUnits.enumerated() {
-            let allUnits = armyOne.count + armyTwo.count
+            let totalCount = armyOne.count + armyTwo.count
             
             if index.isMultiple(of: 2) && !isReverseNeeded {
                 armyOne.append(unit)
@@ -38,7 +37,7 @@ final class War {
                 armyTwo.append(unit)
                 isReverseNeeded = true
             } else if isReverseNeeded {
-                if allUnits.isMultiple(of: 2) {
+                if totalCount.isMultiple(of: 2) {
                     armyTwo.append(unit)
                 } else {
                     armyOne.append(unit)
@@ -51,28 +50,23 @@ final class War {
     //MARK: - Public Methods
     
     func startWar() {
-        let armies = zip(armyOne, armyTwo)
-        
         while armyOne.count > 0 && armyTwo.count > 0 {
+            let armiesZip = zip(armyOne, armyTwo)
             
-            for _ in armies {
-                guard let firstUnit = armyOne.first, let secondUnit = armyTwo.first else { return }
-                let battles = [Battle(firstUnit: firstUnit, secondUnit: secondUnit)]
-            
-                for battle in battles {
-                    battle.startBattle()
+            for pair in armiesZip {
+                let battle = Battle(firstUnit: pair.0, secondUnit: pair.1)
                 
-                    if battle.firstUnit.isAlive {
-                        print("Добавлен в первую армию")
-                        armyOne.append(battle.firstUnit)
-                    } else {
-                        print("Добавлен во вторую армию")
-                        armyTwo.append(battle.secondUnit)
-                    }
-                    
-                    armyOne.removeFirst()
-                    armyTwo.removeFirst()
-                    
+                armyOne.removeFirst()
+                armyTwo.removeFirst()
+                
+                battle.startBattle()
+                
+                if battle.firstUnit.isAlive {
+                    print("Добавлен в первую армию")
+                    armyOne.append(battle.firstUnit)
+                } else {
+                    print("Добавлен во вторую армию")
+                    armyTwo.append(battle.secondUnit)
                 }
             }
         }

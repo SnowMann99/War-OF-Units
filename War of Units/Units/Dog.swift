@@ -34,12 +34,12 @@ final class Dog: Unit {
         damage = (15 ... 20).randomElement() ?? 0
         isDamageBoosted = [true, false].randomElement()!
         
-        healthPointBoostDetect()
+        damageBoostDetect()
     }
     
     //MARK: - Public Methods
     
-    func healthPointBoostDetect() {
+    func damageBoostDetect() {
         if isDamageBoosted {
             damage += (3 ... 5).randomElement() ?? 0
         }

@@ -22,7 +22,6 @@ final class Battle {
     //MARK: - Public Methods
     
     func startBattle() {
-        
         while firstUnit.isAlive && secondUnit.isAlive {
             firstUnit.printUnitInfo()
             secondUnit.printUnitInfo()
@@ -33,6 +32,7 @@ final class Battle {
                 
                 if !secondUnit.isAlive {
                     print("Победитель - \(firstUnit.name) (\(firstUnit.healthPoints))")
+                    break
                 }
             }
             

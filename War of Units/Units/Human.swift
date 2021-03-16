@@ -23,19 +23,16 @@ final class Human: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        healthPoints = (50 ... 80).randomElement() ?? 0
-        resistanceDamageCoefficient = (10 ... 15).randomElement() ?? 0
+        healthPoints = (75 ... 100).randomElement() ?? 0
+        resistanceDamageCoefficient = (5 ... 10).randomElement() ?? 0
         
         gun = ["Пистолет", "Автомат"].randomElement() ?? ""
         roar = "Рядовой Куча прибыл!"
         
-        name = "Человек"
+        name = "Человек 🙎🏻‍♂️"
         
         isResistanceBoosted = [false, true].randomElement()!
-        damage = (40 ... 50).randomElement() ?? 0
-        
-        prepareForBattle()
-        makeBattleRoar()
+        damage = (20 ... 25).randomElement() ?? 0
         
         resistanceBoostDetect()
     }
@@ -44,8 +41,7 @@ final class Human: Unit {
     
     func resistanceBoostDetect() {
         if isResistanceBoosted {
-            resistanceDamageCoefficient += (5 ... 10).randomElement() ?? 0
+            resistanceDamageCoefficient += (1 ... 3).randomElement() ?? 0
         }
     }
-    
 }

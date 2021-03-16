@@ -12,7 +12,9 @@ protocol Unit {
     var healthPoints: Int { get set }
     var resistanceDamageCoefficient: Int { get set }
     
-    var damage: Int { get set}
+    var damage: Int { get set }
+    var isAlive: Bool { get }
+    
     var name: String { get }
     
     var gun: String { get }
@@ -20,10 +22,12 @@ protocol Unit {
     
     //MARK: - Protocol Methods
     
-    func takeDamage(from unit: Unit)
+    mutating func takeDamage(from unit: Unit)
     
     func prepareForBattle()
     func makeBattleRoar()
+    
+    func printUnitInfo()
     
     //MARK: - Life Cycle
     
@@ -32,15 +36,24 @@ protocol Unit {
 
 extension Unit {
     
-    func takeDamage(from unit: Unit) {
-        print("\(name) получает урон от \(unit)")
+    var isAlive: Bool {
+        return healthPoints > 0
+    }
+    
+    func printUnitInfo() {
+        print("\(name)\nЗдоровье - \(healthPoints)\nУрон - \(damage)\nБроня - \(resistanceDamageCoefficient)\nОружие - \(gun)\n")
+    }
+    
+    mutating func takeDamage(from unit: Unit) {
+        print("\(name) получает урон от \(unit.name)\n")
+        healthPoints -= unit.damage - resistanceDamageCoefficient
     }
     
     func prepareForBattle() {
-        print("\(name) теперь готов к битве! Его оружие - \(gun)")
+        print("\(name) теперь готов к битве! Его оружие - \(gun)\n")
     }
     
     func makeBattleRoar() {
-        print("\(name) издает боевой клич - \(roar)")
+        print("\(name) издает боевой клич - \(roar)\n")
     }
 }

@@ -23,19 +23,16 @@ final class Robot: Unit {
     //MARK: - Life Cycle
     
     required init() {
-        healthPoints = (50 ... 100).randomElement() ?? 0
-        resistanceDamageCoefficient = (1 ... 3).randomElement() ?? 0
+        healthPoints = (85 ... 100).randomElement() ?? 0
+        resistanceDamageCoefficient = (7 ... 10).randomElement() ?? 0
         
         gun = ["Ракета", "Бластер"].randomElement() ?? ""
         roar = "Im going to kill you!"
         
-        name = "Робот"
+        name = "Робот 🤖"
         
-        damage = (35 ... 45).randomElement() ?? 0
+        damage = (15 ... 20).randomElement() ?? 0
         isDamageBoosted = [true, false].randomElement()!
-        
-        prepareForBattle()
-        makeBattleRoar()
         
         damageBoostDetect()
         
@@ -45,7 +42,7 @@ final class Robot: Unit {
     
     func damageBoostDetect() {
         if isDamageBoosted {
-            damage += (5 ... 10).randomElement() ?? 0
+            damage += (1 ... 5).randomElement() ?? 0
         }
     }
     

@@ -62,13 +62,12 @@ final class War {
                 battle.startBattle()
                 
                 if battle.firstUnit.isAlive {
-                    print("Добавлен в первую армию")
                     armyOne.append(battle.firstUnit)
                 } else {
-                    print("Добавлен во вторую армию")
                     armyTwo.append(battle.secondUnit)
                 }
             }
         }
+        armyTwo.count < 1 ? print("Победила первая армия!") : print("Победила вторая армия!")
     }
 }

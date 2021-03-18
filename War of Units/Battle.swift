@@ -5,12 +5,16 @@
 //  Created by Egor Salnikov on 05.03.2021.
 //
 
+import Foundation
+
 final class Battle {
     
     //MARK: - Properties
     
     var firstUnit: Unit
     var secondUnit: Unit
+    
+    let pauseDuration: UInt32 = 1
     
     //MARK: - Life Cycle
     
@@ -26,9 +30,14 @@ final class Battle {
             firstUnit.printUnitInfo()
             secondUnit.printUnitInfo()
             
+            pause(seconds: pauseDuration)
+            
             if firstUnit.isAlive {
                 firstUnit.makeBattleRoar()
+                pause(seconds: pauseDuration)
+                
                 secondUnit.takeDamage(from: firstUnit)
+                pause(seconds: pauseDuration)
                 
                 if !secondUnit.isAlive {
                     print("Победитель - \(firstUnit.name) (\(firstUnit.healthPoints))")
@@ -38,12 +47,19 @@ final class Battle {
             
             if secondUnit.isAlive {
                 secondUnit.makeBattleRoar()
+                pause(seconds: pauseDuration)
+                
                 firstUnit.takeDamage(from: secondUnit)
+                pause(seconds: pauseDuration)
                 
                 if !firstUnit.isAlive {
                     print("Победитель - \(secondUnit.name) (\(secondUnit.healthPoints))")
                 }
             }
         }
+    }
+    
+    func pause(seconds: UInt32) {
+        sleep(seconds)
     }
 }

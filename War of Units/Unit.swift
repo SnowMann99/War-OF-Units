@@ -24,9 +24,7 @@ protocol Unit {
     
     mutating func takeDamage(from unit: Unit)
     
-    func prepareForBattle()
     func makeBattleRoar()
-    
     func printUnitInfo()
     
     //MARK: - Life Cycle
@@ -40,17 +38,15 @@ extension Unit {
         return healthPoints > 0
     }
     
-    func printUnitInfo() {
+    func printUnitInfo()  {
         print("\(name)\nЗдоровье - \(healthPoints)\nУрон - \(damage)\nБроня - \(resistanceDamageCoefficient)\nОружие - \(gun)\n")
     }
     
     mutating func takeDamage(from unit: Unit) {
-        print("\(name) получает урон от \(unit.name)\n")
-        healthPoints -= unit.damage - resistanceDamageCoefficient
-    }
-    
-    func prepareForBattle() {
-        print("\(name) теперь готов к битве! Его оружие - \(gun)\n")
+        let cleanDamage = unit.damage - resistanceDamageCoefficient
+        
+        print("\(unit.name) наносит урон \(name) (\(cleanDamage))\n")
+        healthPoints -= cleanDamage
     }
     
     func makeBattleRoar() {

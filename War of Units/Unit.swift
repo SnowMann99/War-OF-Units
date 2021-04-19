@@ -38,15 +38,15 @@ extension Unit {
         return healthPoints > 0
     }
     
-    func printUnitInfo()  {
+    func printUnitInfo() {
         print("\(name)\nЗдоровье - \(healthPoints)\nУрон - \(damage)\nБроня - \(resistanceDamageCoefficient)\nОружие - \(gun)\n")
     }
     
     mutating func takeDamage(from unit: Unit) {
-        let cleanDamage = unit.damage - resistanceDamageCoefficient
+        let pureDamage = unit.damage - resistanceDamageCoefficient
         
-        print("\(unit.name) наносит урон \(name) (\(cleanDamage))\n")
-        healthPoints -= cleanDamage
+        print("\(unit.name) наносит урон \(name) (\(pureDamage))\n")
+        healthPoints -= pureDamage
     }
     
     func makeBattleRoar() {

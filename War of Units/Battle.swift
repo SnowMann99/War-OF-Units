@@ -26,18 +26,21 @@ final class Battle {
     //MARK: - Public Methods
     
     func startBattle() {
+        firstUnit.printUnitInfo()
+        secondUnit.printUnitInfo()
+        
         while firstUnit.isAlive && secondUnit.isAlive {
-            firstUnit.printUnitInfo()
-            secondUnit.printUnitInfo()
-            
-            pause(seconds: pauseDuration)
             
             if firstUnit.isAlive {
                 firstUnit.makeBattleRoar()
-                pause(seconds: pauseDuration)
+                
+                #warning("TODO: Устранить дублирование")
+                sleep(pauseDuration)
                 
                 secondUnit.takeDamage(from: firstUnit)
-                pause(seconds: pauseDuration)
+                
+                #warning("TODO: Устранить дублирование")
+                sleep(pauseDuration)
                 
                 if !secondUnit.isAlive {
                     print("Победитель - \(firstUnit.name) (\(firstUnit.healthPoints))")
@@ -47,19 +50,13 @@ final class Battle {
             
             if secondUnit.isAlive {
                 secondUnit.makeBattleRoar()
-                pause(seconds: pauseDuration)
                 
                 firstUnit.takeDamage(from: secondUnit)
-                pause(seconds: pauseDuration)
                 
                 if !firstUnit.isAlive {
                     print("Победитель - \(secondUnit.name) (\(secondUnit.healthPoints))")
                 }
             }
         }
-    }
-    
-    func pause(seconds: UInt32) {
-        sleep(seconds)
     }
 }
